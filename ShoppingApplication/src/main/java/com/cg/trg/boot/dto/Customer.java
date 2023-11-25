@@ -1,23 +1,38 @@
 package com.cg.trg.boot.dto;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
 public class Customer {
-	private String   customerId;
+	@Id
+	private String customerId;
 	private String firstName;
 	private String lastname;
 	private String mobileNumber;
-	private String Address;
+
+	@OneToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "addressId")
+	private Address address;
 	private String Email;
 	public Customer() {
 		super();
 	}
-	public Customer(String customerId, String firstName, String lastname, String mobileNumber, String address,
-			String email) {
+	public Customer(String customerId, String firstName, String lastname, String mobileNumber,
+			Address address, String email) {
 		super();
 		this.customerId = customerId;
 		this.firstName = firstName;
 		this.lastname = lastname;
 		this.mobileNumber = mobileNumber;
-		Address = address;
+		this.address = address;
 		Email = email;
 	}
 	public String getCustomerId() {
@@ -44,11 +59,11 @@ public class Customer {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public String getAddress() {
-		return Address;
+	public Address getAddress() {
+		return address;
 	}
-	public void setAddress(String address) {
-		Address = address;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public String getEmail() {
 		return Email;
@@ -59,8 +74,11 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastname=" + lastname
-				+ ", mobileNumber=" + mobileNumber + ", Address=" + Address + ", Email=" + Email + "]";
+				+ ", mobileNumber=" + mobileNumber + ", Address=" + address + ", Email=" + Email + "]";
 	}
+	
+	
+	
 	
 
 }

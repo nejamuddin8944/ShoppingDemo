@@ -2,10 +2,8 @@ package com.cg.trg.boot.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
-@Table
 public class Address {
 	@Id
 	private int addressId;

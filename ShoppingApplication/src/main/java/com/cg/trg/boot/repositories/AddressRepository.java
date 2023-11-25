@@ -3,9 +3,9 @@ package com.cg.trg.boot.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cg.trg.boot.dto.Customer;
+import com.cg.trg.boot.dto.Address;
 
 @Repository
-public interface CustomerRepositories extends JpaRepository<Customer,Integer>{
+public interface AddressRepository extends JpaRepository<Address, Integer>{
 
 }

@@ -1,36 +1,57 @@
 package com.cg.trg.boot.dto;
 
 import java.time.LocalDate;
-import java.util.Map;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
+import java.util.ArrayList;
+import java.util.List;
 
+
+
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "order_table")
 public class Order {
 	
-	
-	private String orderid;
+	@Id
+	private String orderId;
 	private LocalDate orderDate;
 	private String orderStatus;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
-	private Map productList;
-	private Address address;
-	public Order(String orderid, LocalDate orderDate, String orderStatus, Customer customer, Map productList,
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+	private List<Product> products;
+
+	
+	
+	public Order(String orderId, LocalDate orderDate, String orderStatus, Customer customer, List<Product> products,
 			Address address) {
 		super();
-		this.orderid = orderid;
+		this.orderId = orderId;
 		this.orderDate = orderDate;
 		this.orderStatus = orderStatus;
 		this.customer = customer;
-		this.productList = productList;
-		this.address = address;
+//		this.products = products;
 	}
 	public Order() {
 		super();
 	}
 	public String getOrderid() {
-		return orderid;
+		return orderId;
 	}
 	public void setOrderid(String orderid) {
-		this.orderid = orderid;
+		this.orderId = orderid;
 	}
 	public LocalDate getOrderDate() {
 		return orderDate;
@@ -50,22 +71,19 @@ public class Order {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public Map getProductList() {
-		return productList;
-	}
-	public void setProductList(Map productList) {
-		this.productList = productList;
-	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	@Override
-	public String toString() {
-		return "Order [orderid=" + orderid + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus + ", customer="
-				+ customer + ", productList=" + productList + ", address=" + address + "]";
-	}
+	
+//	public List<Product> getProducts() {
+//		return products;
+//	}
+//	public void setProducts(List<Product> products) {
+//		this.products = products;
+//	}
+//	@Override
+//	public String toString() {
+//		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus + ", customer="
+//				+ customer + ", products=" + products + "]";
+//	}
+	
+	
 
 }
