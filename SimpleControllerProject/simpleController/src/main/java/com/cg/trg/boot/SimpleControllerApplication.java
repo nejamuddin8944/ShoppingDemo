@@ -10,6 +10,7 @@ public class SimpleControllerApplication {
 	//this changes are done by prabha
 	public static void main(String[] args) {
 		SpringApplication.run(SimpleControllerApplication.class, args);
+		System.out.println("project123");
 	}
 
 }
