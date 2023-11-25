@@ -42,7 +42,7 @@ public class Product {
 		this.quantity = quantity;
 		this.category = category;
 	}
->>>>>>> 587e8b33b9186fb8393fe8b8947c9d7fb39dd594
+
 	public String getProductId() {
 		return productId;
 	}
