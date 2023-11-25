@@ -16,6 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+	//these changes are for our idea of spring practice project 
 	@Bean
 	public UserDetailsManager generateUserDetails() {
 		
