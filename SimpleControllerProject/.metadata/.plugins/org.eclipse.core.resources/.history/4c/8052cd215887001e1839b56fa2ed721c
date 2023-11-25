@@ -1,0 +1,5 @@
+package com.cg.trg.boot.config;
+
+public class SecurityConfig {
+
+}
