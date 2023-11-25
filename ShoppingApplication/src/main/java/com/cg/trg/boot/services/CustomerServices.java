@@ -1,5 +1,5 @@
 package com.cg.trg.boot.services;
 
-public class CustomerServices {
+public interface CustomerServices {
 
 }
