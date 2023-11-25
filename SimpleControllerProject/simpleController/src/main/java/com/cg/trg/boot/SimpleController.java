@@ -25,7 +25,7 @@ public class SimpleController {
 		
 		return "response";
 	}
-	
+	//prabha pratyusha done changes
 	@GetMapping("/user")
 	public String getUser(Model model) {
 		model.addAttribute("message","This is user page");
