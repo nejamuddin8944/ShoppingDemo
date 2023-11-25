@@ -27,6 +27,7 @@ public class Product {
 	private String manufacturer;
 	private int quantity;
 	private Category category;
+	
 	public String getProductId() {
 		return productId;
 	}
