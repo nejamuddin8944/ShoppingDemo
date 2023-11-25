@@ -3,6 +3,8 @@ package com.cg.trg.boot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+//this i nejam
 @SpringBootApplication
 public class ShoppingApplication {
 
