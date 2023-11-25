@@ -30,8 +30,8 @@ public class Order {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
-	
-//	private List<Product> products;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+	private List<Product> products;
 
 	
 	

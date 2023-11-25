@@ -36,6 +36,12 @@ public class Product {
 	@ManyToOne(cascade = CascadeType.ALL) 
     @JoinColumn(name = "catId")
 	private Category category;
+	
+	
+	@ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+	
 
 	public Product() {
 		super();
