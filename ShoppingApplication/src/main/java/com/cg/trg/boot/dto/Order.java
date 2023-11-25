@@ -2,17 +2,25 @@ package com.cg.trg.boot.dto;
 
 import java.time.LocalDate;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Order {
 	
-	
+	@Id
 	private String orderid;
 	private LocalDate orderDate;
 	private String orderStatus;
 	private Customer customer;
 	private Map productList;
+	@Autowired
 	private Address address;
+	
 	public Order(String orderid, LocalDate orderDate, String orderStatus, Customer customer, Map productList,
 			Address address) {
 		super();

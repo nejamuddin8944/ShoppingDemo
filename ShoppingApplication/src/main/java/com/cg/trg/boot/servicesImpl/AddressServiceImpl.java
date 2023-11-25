@@ -1,5 +1,7 @@
 package com.cg.trg.boot.servicesImpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cg.trg.boot.dto.Address;
@@ -13,12 +15,17 @@ public class AddressServiceImpl implements AddressServices{
 	
 	@Override
 	public Address addAddress(Address add) {
+		Optional<Address> opt = repo.findById(add.getAddressId());
+		if(opt.isPresent())
+			return opt.get();
 		return null;
 	}
 
 	@Override
 	public Address updateAddress(Address add) {
-		// TODO Auto-generated method stub
+		Optional<Address> opt = repo.findById(add.getAddressId());
+		if(opt.isPresent())
+			return opt.get();
 		return null;
 	}
 

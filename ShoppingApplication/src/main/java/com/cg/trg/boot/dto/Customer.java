@@ -1,5 +1,7 @@
 package com.cg.trg.boot.dto;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -10,13 +12,14 @@ public class Customer {
 	private String firstName;
 	private String lastname;
 	private String mobileNumber;
-	private String Address;
+	@Autowired
+	private Address Address;
 	private String Email;
 	public Customer() {
 		super();
 	}
-	public Customer(String customerId, String firstName, String lastname, String mobileNumber, String address,
-			String email) {
+	public Customer(String customerId, String firstName, String lastname, String mobileNumber,
+			com.cg.trg.boot.dto.Address address, String email) {
 		super();
 		this.customerId = customerId;
 		this.firstName = firstName;
@@ -49,10 +52,10 @@ public class Customer {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public String getAddress() {
+	public Address getAddress() {
 		return Address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		Address = address;
 	}
 	public String getEmail() {
@@ -66,6 +69,9 @@ public class Customer {
 		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastname=" + lastname
 				+ ", mobileNumber=" + mobileNumber + ", Address=" + Address + ", Email=" + Email + "]";
 	}
+	
+	
+	
 	
 
 }

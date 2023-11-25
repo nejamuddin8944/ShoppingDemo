@@ -1,6 +1,11 @@
 package com.cg.trg.boot.dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
+	@Id
 	private  String userId ;
 	private String password;
 	private String role;
