@@ -2,19 +2,25 @@ package com.cg.trg.boot.dto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Product {
 	
 	@Id
@@ -26,7 +32,9 @@ public class Product {
 	private String specification;
 	private String manufacturer;
 	private int quantity;
-	@Autowired
+
+	@ManyToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "catId")
 	private Category category;
 
 	public Product() {

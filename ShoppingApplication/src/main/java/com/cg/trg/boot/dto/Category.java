@@ -1,14 +1,10 @@
 package com.cg.trg.boot.dto;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Component
+
 @Entity
-@Table
 public class Category {
 	@Id
 	private String catId;

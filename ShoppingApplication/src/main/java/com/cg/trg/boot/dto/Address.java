@@ -1,14 +1,9 @@
 package com.cg.trg.boot.dto;
 
-import org.springframework.stereotype.Component;
-
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Component
 @Entity
-@Embeddable
 public class Address {
 	@Id
 	private int addressId;
