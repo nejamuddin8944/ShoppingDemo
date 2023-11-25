@@ -25,9 +25,7 @@ public class Product {
 	private String manufacturer;
 	private int quantity;
 	private Category category;
-<<<<<<< HEAD
-	
-=======
+
 	public Product() {
 		super();
 	}

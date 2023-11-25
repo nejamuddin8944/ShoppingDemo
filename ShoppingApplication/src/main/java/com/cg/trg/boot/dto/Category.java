@@ -6,14 +6,14 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class Catagory {
+public class Category {
 	@Id
 	private String catId;
 	private  String catagoryName;
-	public Catagory() {
+	public Category() {
 		super();
 	}
-	public Catagory(String catId, String catagoryName) {
+	public Category(String catId, String catagoryName) {
 		super();
 		this.catId = catId;
 		this.catagoryName = catagoryName;
