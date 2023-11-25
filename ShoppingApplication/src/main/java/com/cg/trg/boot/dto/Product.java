@@ -1,7 +1,5 @@
 package com.cg.trg.boot.dto;
 
-import java.util.Locale.Category;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -27,7 +25,26 @@ public class Product {
 	private String manufacturer;
 	private int quantity;
 	private Category category;
+<<<<<<< HEAD
 	
+=======
+	public Product() {
+		super();
+	}
+	public Product(String productId, String productName, double price, String color, String dimension,
+			String specification, String manufacturer, int quantity, Category category) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+		this.color = color;
+		this.dimension = dimension;
+		Specification = specification;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+		this.category = category;
+	}
+>>>>>>> 587e8b33b9186fb8393fe8b8947c9d7fb39dd594
 	public String getProductId() {
 		return productId;
 	}
@@ -81,5 +98,11 @@ public class Product {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", price=" + price + ", color="
+				+ color + ", dimension=" + dimension + ", Specification=" + Specification + ", manufacturer="
+				+ manufacturer + ", quantity=" + quantity + ", category=" + category + "]";
 	}
 }
