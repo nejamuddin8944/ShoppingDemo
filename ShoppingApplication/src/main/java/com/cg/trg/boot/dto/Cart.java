@@ -1,16 +1,26 @@
 package com.cg.trg.boot.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 @Entity
 public class Cart {
 	@Id
 	private String cartId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name ="customer_id" )
 	private Customer customer;
-	List<Product> products=new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "cart")
+	List<Product> products;
+	
 	public Cart() {
 		super();
 	}

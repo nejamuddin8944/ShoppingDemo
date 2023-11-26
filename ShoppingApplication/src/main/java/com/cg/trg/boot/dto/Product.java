@@ -42,6 +42,10 @@ public class Product {
     @JoinColumn(name = "order_id")
     private Order order;
 	
+	@ManyToOne
+	@JoinColumn(name = "cart_id")
+	private Cart cart;
+	
 
 	public Product() {
 		super();
