@@ -7,5 +7,9 @@ import com.cg.trg.boot.dto.Product;
 @Repository
 public interface ProductRepositories extends JpaRepository<Product, Integer> {
 
+	void update(Product p);
+
+	boolean delete(int pId);
+
 
 }

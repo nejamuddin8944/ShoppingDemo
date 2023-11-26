@@ -1,11 +1,6 @@
 package com.cg.trg.boot.servicesImpl;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.cg.trg.boot.dto.Address;
 import com.cg.trg.boot.dto.Category;
 import com.cg.trg.boot.dto.Product;
 import com.cg.trg.boot.repositories.ProductRepositories;
@@ -17,7 +12,7 @@ public class ProductServicesImpl implements ProductServices  {
 	@Override
 	public List<Product> viewAllProducts() {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
@@ -29,6 +24,7 @@ public class ProductServicesImpl implements ProductServices  {
 	@Override
 	public void update(Product p) {
 		// TODO Auto-generated method stub
+		repo.update(p);
 		
 	}
 
@@ -47,7 +43,7 @@ public class ProductServicesImpl implements ProductServices  {
 	@Override
 	public boolean delete(int pId) {
 		// TODO Auto-generated method stub
-		return false;
+		return repo.delete(pId);
 	}
 
 }
