@@ -1,12 +1,14 @@
 package com.cg.trg.boot.services;
 
+import java.util.List;
+
 import com.cg.trg.boot.dto.Address;
 
 public interface AddressServices {
 	
-	Address addAddress(Address add);
-	Address updateAddress(Address add);
-	Address removeAddress(Address add);
-	Address viewAllAddress(String id);
-	Address viewAddress(Address add);
+	Boolean addAddress(Address add);
+	Boolean updateAddress(Address add);
+	Boolean removeAddress(int addId);
+	Address viewAddress(int addId);
+	List<Address> viewAllAddress();
 }
