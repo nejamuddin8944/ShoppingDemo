@@ -2,6 +2,7 @@ package com.cg.trg.boot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Service;
 
 import com.cg.trg.boot.dto.Address;
 import com.cg.trg.boot.repositories.AddressRepository;
@@ -10,6 +11,7 @@ import com.cg.trg.boot.repositories.CategoryRepositories;
 import com.cg.trg.boot.repositories.CustomerRepositories;
 import com.cg.trg.boot.repositories.ProductRepositories;
 
+@Service
 public class DbInitForAllEntity implements CommandLineRunner{
 	
 	@Autowired
