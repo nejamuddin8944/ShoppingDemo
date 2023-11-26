@@ -42,7 +42,7 @@ public class Order {
 		this.orderDate = orderDate;
 		this.orderStatus = orderStatus;
 		this.customer = customer;
-//		this.products = products;
+		this.products = products;
 	}
 	public Order() {
 		super();
@@ -72,17 +72,17 @@ public class Order {
 		this.customer = customer;
 	}
 	
-//	public List<Product> getProducts() {
-//		return products;
-//	}
-//	public void setProducts(List<Product> products) {
-//		this.products = products;
-//	}
-//	@Override
-//	public String toString() {
-//		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus + ", customer="
-//				+ customer + ", products=" + products + "]";
-//	}
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus + ", customer="
+				+ customer + ", products=" + products + "]";
+	}
 	
 	
 
