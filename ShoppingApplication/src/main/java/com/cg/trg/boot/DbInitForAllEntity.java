@@ -1,0 +1,35 @@
+package com.cg.trg.boot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.cg.trg.boot.dto.Address;
+import com.cg.trg.boot.repositories.AddressRepository;
+import com.cg.trg.boot.repositories.CartRepositories;
+import com.cg.trg.boot.repositories.CategoryRepositories;
+import com.cg.trg.boot.repositories.CustomerRepositories;
+import com.cg.trg.boot.repositories.ProductRepositories;
+
+public class DbInitForAllEntity implements CommandLineRunner{
+	
+	@Autowired
+	AddressRepository addRepo;
+	@Autowired
+	CartRepositories cartRepo;
+	@Autowired
+	CategoryRepositories catRepo;
+	@Autowired
+	CustomerRepositories custRepo;
+	@Autowired
+	ProductRepositories prodRepo;
+	
+	
+	@Override
+	public void run(String... args) throws Exception {
+		//Adding Data to Address Table
+		addRepo.save(new Address(10, "MG-21", "GAR-Infobahn", "Hyderabad", "Telangana", "India", "720001"));
+		addRepo.save(new Address(20, "MG-22", "GAR-Infobahn", "Kolkata", "West Bengal", "India", "70001"));
+		
+	}
+
+}
