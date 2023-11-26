@@ -1,12 +1,18 @@
 package com.cg.trg.boot.servicesImpl;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.cg.trg.boot.dto.Category;
 import com.cg.trg.boot.dto.Product;
 import com.cg.trg.boot.repositories.ProductRepositories;
 import com.cg.trg.boot.services.ProductServices;
 
+@Service
 public class ProductServicesImpl implements ProductServices  {
+	@Autowired
 	ProductRepositories repo;
 
 	@Override
