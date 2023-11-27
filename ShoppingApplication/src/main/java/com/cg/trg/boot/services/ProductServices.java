@@ -10,9 +10,9 @@ public interface ProductServices {
 	List<Product> viewAllProducts();
 	void save(Product p);
 	void update(Product p);
-	Product viewProduct(int pId);
+	Product viewProduct(String pId);
 	List<Product> viewProductByCategory(Category category);
-	boolean delete(int pId);
+	boolean delete(String pId);
 	
 
 }

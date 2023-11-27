@@ -1,12 +1,14 @@
 package com.cg.trg.boot.servicesImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.trg.boot.dto.Category;
 import com.cg.trg.boot.dto.Product;
+import com.cg.trg.boot.exceptions.ProductNotFoundException;
 import com.cg.trg.boot.repositories.ProductRepositories;
 import com.cg.trg.boot.services.ProductServices;
 
@@ -29,17 +31,16 @@ public class ProductServicesImpl implements ProductServices  {
 
 	@Override
 	public void update(Product p) {
-		// TODO Auto-generated method stub
-		repo.update(p);
+		
+	Optional<Product> opt = repo.findById(p.getProductId());
+	if(opt.isPresent()) {
+		repo.save(p);
+	}
+	else {
+		throw new ProductNotFoundException("product not found");
+	}
 		
 	}
-
-	@Override
-	public Product viewProduct(int pId) {
-		// TODO Auto-generated method stub
-		return repo.getById(pId);
-	}
-
 	@Override
 	public List<Product> viewProductByCategory(Category category) {
 		// TODO Auto-generated method stub
@@ -47,9 +48,26 @@ public class ProductServicesImpl implements ProductServices  {
 	}
 
 	@Override
-	public boolean delete(int pId) {
-		// TODO Auto-generated method stub
-		return repo.delete(pId);
+	public Product viewProduct(String pId) {
+		
+		Optional<Product> opt = repo.findById(pId);
+		if(opt.isPresent()) {
+			return opt.get();
+		}
+		else {
+			throw new ProductNotFoundException("product is not there to view");			
+		}
+		
+	}
+
+	@Override
+	public boolean delete(String pId) {
+		Optional<Product> opt = repo.findById(pId);
+		if(opt.isPresent()) {
+			repo.deleteById(pId);
+			return true;
+		}
+		throw new ProductNotFoundException("product not found to delete");
 	}
 
 }
