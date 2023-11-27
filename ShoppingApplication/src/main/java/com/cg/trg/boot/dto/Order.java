@@ -1,14 +1,9 @@
 package com.cg.trg.boot.dto;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-
-
-
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;

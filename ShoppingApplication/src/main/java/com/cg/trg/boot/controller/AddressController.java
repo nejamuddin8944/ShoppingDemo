@@ -29,7 +29,7 @@ public class AddressController {
 		return service.viewAllAddress();
 	}
 	
-	@GetMapping(value = "{id}/*")
+	@GetMapping(value = "{id}")
 	public ResponseEntity<Address> getAddress(@PathVariable int id){
 	   Address address = service.viewAddress(id);
 		return new ResponseEntity<Address>(address, HttpStatus.OK);	

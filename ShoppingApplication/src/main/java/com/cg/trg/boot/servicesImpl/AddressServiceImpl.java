@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cg.trg.boot.dto.Address;
 import com.cg.trg.boot.exceptions.AddressNotFoundException;
 import com.cg.trg.boot.exceptions.DuplicateAddressFoundException;
+import com.cg.trg.boot.exceptions.NullAddressListException;
 import com.cg.trg.boot.repositories.AddressRepository;
 import com.cg.trg.boot.services.AddressServices;
 
@@ -62,13 +63,19 @@ public class AddressServiceImpl implements AddressServices{
 	@Override
 	public List<Address> viewAllAddress() {
 		List<Address> addressList = repo.findAll();
+		if(addressList==null || addressList.isEmpty()) {
+			throw new NullAddressListException("Address list is empty");
+		}
 		return addressList;
 	}
 
 	@Override
 	public Address viewAddress(int addId) {
 		Optional<Address> opt = repo.findById(addId);
-		return opt.get();
+		if(opt.isPresent()) {
+			return opt.get();	
+		}
+		throw new AddressNotFoundException("Addres with id: "+addId+" doesn't exists");
 	}
 	
 	
