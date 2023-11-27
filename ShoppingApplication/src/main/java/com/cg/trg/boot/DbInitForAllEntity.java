@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.trg.boot.dto.Address;
 import com.cg.trg.boot.dto.Category;
+import com.cg.trg.boot.dto.Product;
 import com.cg.trg.boot.repositories.AddressRepository;
 import com.cg.trg.boot.repositories.CartRepositories;
 import com.cg.trg.boot.repositories.CategoryRepositories;
