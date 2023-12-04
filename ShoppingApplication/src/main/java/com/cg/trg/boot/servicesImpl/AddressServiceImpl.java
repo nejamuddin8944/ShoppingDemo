@@ -33,14 +33,6 @@ public class AddressServiceImpl implements AddressServices{
 	public Boolean updateAddress(Address add) {
 		Optional<Address> opt = repo.findById(add.getAddressId());
 		if(opt.isPresent()) {
-//			Address existingAddress =opt.get();
-//			Address updatedAddress = new Address(existingAddress.getAddressId(),
-//												 existingAddress.getStreetNo(), 
-//												 existingAddress.getBuildingName(), 
-//												 existingAddress.getCity(), 
-//												 existingAddress.getState(), 
-//												 existingAddress.getCountry(), 
-//												 existingAddress.getPincode());
 			
 			repo.save(add);
 			return true;
